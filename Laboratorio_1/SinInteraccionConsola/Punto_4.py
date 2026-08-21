@@ -1,3 +1,4 @@
+# %%
 def resistencia_PT100pos(temperatura):
     # Coeficientes de la ecuación de Callendar-Van Dusen
     A = 3.9083e-3
@@ -25,12 +26,13 @@ def resistencia_PT100neg(temperatura):
     return resistencia
 
 temp1 = float(200) #Temperatura en grados celsius
-temp2 = float(-66)
 
 # Calcular la resistencia para la temperatura dada
-resistencia1 = resistencia_PT100pos(temp1)
-resistencia2 = resistencia_PT100neg(temp2)
+resistencia1 = 0
+if (temp1 < 0):
+    resistencia1 = resistencia_PT100pos(temp1)
+else:
+    resistencia1 = resistencia_PT100neg(temp1)
 
 # Mostrar el resultado
 print("La resistencia de la RTD a {:.2f}".format(temp1), "°C es de: {:.2f}".format(resistencia1), "ohmios")
-print("La resistencia de la RTD a {:.2f}".format(temp2), "°C es de: {:.2f}".format(resistencia2), "ohmios")

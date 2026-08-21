@@ -1,3 +1,4 @@
+# %%
 import matplotlib.pyplot as plt
 
 x = float(input("Ingrese la coordenada X del vector: "))
@@ -5,7 +6,7 @@ y = float(input("Ingrese la coordenada Y del vector: "))
 z = float(input("Ingrese la coordenada Z del vector: "))
 
 min_coord = min(0, x, y, z)
-max_coord = max(x, y, z)
+max_coord = max(abs(x), abs(y), abs(z))
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
@@ -24,3 +25,4 @@ ax.set_zlabel('Z')
 
 ax.legend()
 plt.show()
+# %%

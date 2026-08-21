@@ -10,6 +10,7 @@ def carga_y_descarga(V, R, C, t):
     return V_carga, V_descarga
 
 def graficar(V, R, C):
+    C = C * 1e-6  # Convertir de uF a F
     t_carga = np.linspace(0, 5*R*C, 500)          # Intervalo de tiempo para la carga en milisegundos
     t_descarga = np.linspace(5*R*C, 10*R*C, 500)  # Intervalo de tiempo para la descarga en milisegundos
 
