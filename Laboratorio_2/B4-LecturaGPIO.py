@@ -1,3 +1,6 @@
+import os
+os.environ["QT_QPA_PLATFORMTHEME"] = "none"
+
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QVBoxLayout, QHBoxLayout, QWidget
 from PyQt5.QtCore import Qt, QTimer
@@ -9,9 +12,12 @@ ENTORNO_LOCAL = False
 if not ENTORNO_LOCAL:
     import RPi.GPIO as GPIO
     # Configuracion de pin de lectura
-    GPIO.setmode(GPIO.BOARD)
-    input_pin = 11  # pin de entrada digital
+    GPIO.setmode(GPIO.BCM)
+    input_pin = 20  # pin de entrada digital
     GPIO.setup(input_pin, GPIO.IN)
+
+    output_pin = 16  # pin de salida digital
+    GPIO.setup(output_pin, GPIO.OUT, initial=GPIO.HIGH)
 
 else:
     # Simulacion en entorno local

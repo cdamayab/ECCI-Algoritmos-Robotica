@@ -1,10 +1,13 @@
+import os
+os.environ["QT_QPA_PLATFORMTHEME"] = "none"
+
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QHBoxLayout, QWidget, QPushButton, QLineEdit, QLabel
 from PyQt5.QtCore import QTimer
 from PyQt5.QtGui import QPixmap
 
 # Definir entorno local o raspberry
-ENTORNO_LOCAL = True
+ENTORNO_LOCAL = False
 
 if not ENTORNO_LOCAL:
     import RPi.GPIO as GPIO
@@ -12,10 +15,10 @@ if not ENTORNO_LOCAL:
     # Configuración de pines para el motor paso a paso
     GPIO.setmode(GPIO.BCM)
     
-    coil_A_1_pin = 17  # Pin 1 de la bobina A
-    coil_A_2_pin = 18  # Pin 2 de la bobina A
-    coil_B_1_pin = 22  # Pin 1 de la bobina B
-    coil_B_2_pin = 23  # Pin 2 de la bobina B
+    coil_A_1_pin = 26  # IN1 - Pin 1 de la bobina A
+    coil_A_2_pin = 19  # IN2 - Pin 2 de la bobina A
+    coil_B_1_pin = 13  # IN3 - Pin 1 de la bobina B
+    coil_B_2_pin = 6   # IN4 - Pin 2 de la bobina B
     
     GPIO.setup(coil_A_1_pin, GPIO.OUT)
     GPIO.setup(coil_A_2_pin, GPIO.OUT)

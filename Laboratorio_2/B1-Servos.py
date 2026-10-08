@@ -1,3 +1,6 @@
+import os
+os.environ["QT_QPA_PLATFORMTHEME"] = "none"
+
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QSlider, QLabel, QVBoxLayout, QHBoxLayout, QWidget, QLineEdit, QDial
 from PyQt5.QtCore import Qt
@@ -9,15 +12,15 @@ ENTORNO_LOCAL = False
 if not ENTORNO_LOCAL:
     import RPi.GPIO as GPIO
     # Configuración de pines GPIO para servos
-    GPIO.setmode(GPIO.BOARD)
+    GPIO.setmode(GPIO.BCM)
 
     # Pines Servo 1 (VCC, GND, PWM)
-    servo1_pwm  = 11  # pin PWM
+    servo1_pwm  = 17  # pin PWM
     #servo1_vcc = 2   # pin VCC definido por placa
     #servo1_gnd = 6   # pin GND definido por placa
 
     # Pines Servo 2 (VCC, GND, PWM)
-    servo2_pwm  = 12  # pin PWM
+    servo2_pwm  = 18  # pin PWM
     #servo2_vcc = 4   # pin VCC definido por placa
     #servo2_gnd = 9   # pin GND definido por placa
 
